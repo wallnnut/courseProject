@@ -53,14 +53,12 @@ const Users = () => {
     const handleDelete = (id) => {
       setUser(prevState => prevState.filter(user => { 
         return user._id !== id}))
-      if (users.length === 1) {
-        document.querySelector('.table').remove()
-      }
     }
 
     return (
       <>
       {renderPhrase(users.length)}
+      {users.length > 0 && 
       <table className="table">  
       <thead>
          <tr>
@@ -75,7 +73,7 @@ const Users = () => {
       <tbody>
          {res}
       </tbody>
-   </table>
+   </table>}
       </>) 
 }
 
