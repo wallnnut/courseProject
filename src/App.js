@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Users from "./components/users";
+import Users from "./components/Users";
 import API from "./components/Api";
 import SearchStatus from "./components/searchStatus";
 
@@ -24,31 +24,12 @@ function App() {
   };
   return (
     <div>
-      <div>
-        <SearchStatus length={users.length} />
-      </div>
-      {users.length > 0 && (
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Имя</th>
-              <th scope="col">Качества</th>
-              <th scope="col">Профессия</th>
-              <th scope="col">Встретился, раз</th>
-              <th scope="col">Оценка</th>
-              <th scope="col">Избранное</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <Users
-              users={users}
-              onDelete={handleDelete}
-              onChange={handleToggleBookmark}
-            />
-          </tbody>
-        </table>
-      )}
+      <SearchStatus length={users.length} />
+      <Users
+        onDelete={handleDelete}
+        OnToggle={handleToggleBookmark}
+        users={users}
+      />
     </div>
   );
 }
